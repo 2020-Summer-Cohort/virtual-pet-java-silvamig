@@ -6,6 +6,8 @@ public class VirtualPetApplication {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        //create boolean value true/ false, define as true initially
+        boolean running = true;
 
         VirtualPet bunnyBun = new VirtualPet(10, 10, 25);
 
@@ -14,15 +16,16 @@ public class VirtualPetApplication {
         System.out.println("Thirstiness is " + bunnyBun.getThirstLevel());
         System.out.println("Happiness is " + bunnyBun.getHappinessLevel());
 
-        System.out.println("What would you like to do with Picasso?");
-        System.out.println("Press 1 to Feed Picasso.");
-        System.out.println("Press 2 to give Picasso a drink.");
-        System.out.println("Press 3 to cuddle wittle Picasso.");
-        System.out.println("Press 4 to do nothing.");
-        System.out.println("Press 5 to EXIT and abandon Picasso.");
-        String userInput = input.nextLine();
+        while (running) {
 
-        while (!userInput.equals("5")) {
+            System.out.println("What would you like to do with Picasso?");
+            System.out.println("Press 1 to Feed Picasso.");
+            System.out.println("Press 2 to give Picasso a drink.");
+            System.out.println("Press 3 to cuddle wittle Picasso.");
+            System.out.println("Press 4 to do nothing.");
+            System.out.println("Press 5 to EXIT and abandon Picasso.");
+            String userInput = input.nextLine();
+
             if (userInput.equals("1")) {
                 bunnyBun.feed(5);
                 bunnyBun.tick();
@@ -37,6 +40,9 @@ public class VirtualPetApplication {
             }
             if (userInput.equals("4")) {
                 bunnyBun.tick();
+            }
+            if (userInput.equals("5")) {
+                running = false;
             }
             if (bunnyBun.getHungerLevel() >= 50) {
                 System.out.println("Picasso went to a friend's for dinner!");
@@ -54,19 +60,12 @@ public class VirtualPetApplication {
             System.out.println("Picasso's hunger is " + bunnyBun.getHungerLevel());
             System.out.println("Picasso's thirstiness is " + bunnyBun.getThirstLevel());
             System.out.println("Picasso's hunger is " + bunnyBun.getHappinessLevel());
-
-            System.out.println("What would you like to do with Picasso?");
-            System.out.println("Press 1 to Feed Picasso.");
-            System.out.println("Press 2 to give Picasso a drink.");
-            System.out.println("Press 3 to cuddle wittle Picasso.");
-            System.out.println("Press 4 to do nothing.");
-            System.out.println("Press 5 to EXIT and abandon Picasso.");
-            userInput = input.nextLine();
-
-
         }
+
 
     }
 }
+
+
 
 
