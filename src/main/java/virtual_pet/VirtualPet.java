@@ -6,7 +6,7 @@ public class VirtualPet {
     public int happinessLevel;
 
     public VirtualPet(int hungerLevel, int thirstLevel, int happinessLevel) {
-        this.setHungerLevel(hungerLevel);
+        this.hungerLevel(hungerLevel);
         this.thirstLevel = thirstLevel;
         this.happinessLevel = happinessLevel;
     }
@@ -24,13 +24,13 @@ public class VirtualPet {
     }
 
     public void tick() {
-        setHungerLevel(getHungerLevel() + 10);
+        hungerLevel = hungerLevel + 10;
         thirstLevel = thirstLevel + 10;
         happinessLevel = happinessLevel - 3;
     }
 
     public void hungerLevel(int hungerLevelIncrease) {
-        setHungerLevel(getHungerLevel() + hungerLevelIncrease);
+        hungerLevel = hungerLevel + hungerLevelIncrease;
     }
 
     public void thirstLevel(int thirstLevelIncrease) {
@@ -42,11 +42,11 @@ public class VirtualPet {
     }
 
     public void feed(int hungerLevelDecrease) {
-        if (getHungerLevel() > hungerLevelDecrease) {
-            setHungerLevel(getHungerLevel() - hungerLevelDecrease);
+        if (hungerLevel > hungerLevelDecrease) {
+            hungerLevel = hungerLevel - hungerLevelDecrease;
             thirstLevel = thirstLevel + 5;
         } else {
-            setHungerLevel(10);
+            hungerLevel = 10;
             thirstLevel = thirstLevel + 5;
         }
     }
